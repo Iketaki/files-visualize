@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+html, body {
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  position: relative;
+}
+
+$infoWidth: 200px;
+
+svg {
+  background-color: #ffffff;
+  padding: 0;
+}
+
+#info {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  width: 300px;
+  color: #ffffff;
+
+  height: 200px;
+  word-wrap: break-word;
+}
