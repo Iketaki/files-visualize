@@ -18,8 +18,7 @@ d3.json data_path, (error, root) ->
       d.dy
 
   retSize = (d) ->
-    #d.s
-    Math.log(d.s + 1) / Math.log(10) + 1
+    d.s
 
   boxGroup = svg.selectAll("g").data(treemap.value(retSize).nodes(root)).enter().append("g")
 
@@ -33,8 +32,8 @@ d3.json data_path, (error, root) ->
               "hsl(#{Math.max(200 - d.l*20, 0)}, 100%, 70%)"
             else
               "none"
-          "stroke": "#ffffff"
-          "stroke-opacity": 0.5
+          "stroke": "#000000"
+          "stroke-opacity": 0.2
         .attr(boxStyle)
 
   label = $("#info")
@@ -62,15 +61,6 @@ d3.json data_path, (error, root) ->
             width: node.dx
             height: node.dy
 
-        #parents.append("rect")
-        #  .attr
-        #    "fill": "white"
-        #    "fill-opacity": 0.5
-        #    x: node.x
-        #    y: node.y
-        #    width: 100
-        #    height: 15
-
         parents.append("text")
           .attr
             x: node.x + 2
@@ -91,11 +81,3 @@ d3.json data_path, (error, root) ->
       d3.select(this).attr(opacity: 1)
       parents.selectAll("*").remove()
       label.empty()
-
-#text = boxGroup
-#  .append("text").attr(fill: "black").attr(textStyle).text (d) ->
-#    d.n
-
-#boxGroup.data treemap.value(retSize).nodes(root)
-#box.transition().attr(boxStyle).duration 1000
-#text.transition().attr(textStyle).duration 1000
